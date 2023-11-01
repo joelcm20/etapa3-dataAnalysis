@@ -61,7 +61,7 @@ CONSTRAINT producto_fk FOREIGN KEY (id_fabricante) REFERENCES public.fabricante(
 
 --Ejercicios:
 --1 -Lista el nombre de todos los productos que hay en la tabla producto.
-select nombre from producto
+select nombre from producto	
 
 --2 -Lista los nombres y los precios de todos los productos de la tabla producto.
 select nombre, precio from producto
@@ -70,6 +70,7 @@ select nombre, precio from producto
 select * from producto
 
 --4 -Lista el nombre de los productos, el precio en euros y el precio en dólares estadounidenses (USD).
+SELECT nombre, (precio * 0.95) as precio_euro, precio as precio_usd FROM producto;
 
 /*
 5 -Lista el nombre de los productos, el precio en euros y el precio en dólares 
@@ -87,9 +88,10 @@ SELECT LOWER(nombre), precio FROM producto
 
 --8 -Lista el nombre de todos los fabricantes en una columna, y en otra columna 
 --obtenga en mayúsculas los dos primeros caracteres del nombre del fabricante.
-SELECT nombre AS nombre_fabricante,
-UPPER(SUBSTRING(nombre, 1, 2)) mayuscula_caracter
-FROM fabricante
+SELECT nombre 
+AS nombre_fabricante, UPPER(SUBSTRING(nombre, 1, 2)) 
+AS mayuscula_caracter
+FROM fabricante;
 
 --9 -Lista los nombres y los precios de todos los productos de la tabla producto, 
 --redondeando el valor del precio.
